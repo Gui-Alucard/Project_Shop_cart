@@ -115,7 +115,7 @@ function createProductItemElement({ sku, name, image }) {
   return section;
 }
 
-async function createWindowList() {
+function createWindowList() {
   fetch(urlComputer)
   .then(response => response.json())
   .then(data =>
@@ -150,7 +150,7 @@ ____________________WINDOW ONLOAD____________________
 */
 window.onload = async function onload() {
   await loadingRemove();
-  await createWindowList();
+  createWindowList();
   sectionCart.appendChild(createBtnAndClickListener());
   cartList.innerHTML = localStorage.getItem('li do carrinho');
   document.querySelectorAll('li').forEach(elem => elem.addEventListener('click', () => cartItemClickListener(elem)));
